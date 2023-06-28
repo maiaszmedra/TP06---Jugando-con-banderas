@@ -28,26 +28,27 @@ export default function App() {
     setPais(paises[randomNum])
   }
 
+
   const handleSubmit = (e) => {
-    seleccionarPaisRandom(paises)//jessi dijo que iba afuera pero tira error 
+    seleccionarPaisRandom(paises)//no va aca
     e.preventDefault()
     if (pais.name.toLowerCase() === paisAdivinado.toLowerCase()) {
       setPuntos(puntos + 10)
-      alert("Correcto!")
+      alert("Perfect!")
     }
     else {
       setPuntos(puntos - 1)
-      alert("Incorrecto!")
+      alert(`Wrong! the right answer was ${pais.name}`)
     }
   }
 
   return (
     <div class="center">
-      <h1>Guess the flag!</h1>
+    <h1>Guess the flag!</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <img alt="..." width="500px" height="auto" src={pais.flag}></img>
-          <div>
+          <div class="input">
               <input
                 id="nombrePais"
                 type="text"
@@ -58,6 +59,7 @@ export default function App() {
             <button type="submit" className="u-full-width button-primary">
               Guess
             </button>
+            
           </div>
           <h1>You have {puntos} points</h1>
         </div>
